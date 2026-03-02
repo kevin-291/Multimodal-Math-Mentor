@@ -15,6 +15,8 @@ if "extracted_text" not in st.session_state:
     st.session_state.extracted_text = ""
 if "confidence" not in st.session_state:
     st.session_state.confidence = 1.0
+if "reset_counter" not in st.session_state:
+    st.session_state.reset_counter = 0
 
 config = {"configurable": {"thread_id": st.session_state.thread_id}}
 
@@ -26,7 +28,10 @@ input_mode = st.radio("Select Input Mode:", ["Text", "Image", "Audio"], horizont
 
 with st.container(border=True):
     if input_mode == "Text":
-        user_text = st.text_area("Type your math problem here:")
+        user_text = st.text_area(
+            "Type your math problem here:",
+            key=f"text_input_{st.session_state.reset_counter}")
+        
         if st.button("Submit & Solve", type="primary"):
             st.session_state.extracted_text = user_text
             st.session_state.edited_text = user_text
@@ -34,7 +39,11 @@ with st.container(border=True):
             run_workflow = True 
             
     elif input_mode == "Image":
-        uploaded_img = st.file_uploader("Upload an image of the problem", type=["png", "jpg", "jpeg"])
+        uploaded_img = st.file_uploader(
+            "Upload an image of the problem", 
+            type=["png", "jpg", "jpeg"],
+            key=f"image_input_{st.session_state.reset_counter}")
+        
         if uploaded_img and st.button("Extract"):
             with st.spinner("Running OCR..."):
                 try:
@@ -47,7 +56,9 @@ with st.container(border=True):
                     st.error(f"OCR Failed: {e}")
                     
     elif input_mode == "Audio":
-        recorded_audio = st.audio_input("Record your math problem")
+        recorded_audio = st.audio_input(
+            "Record your math problem",
+            key=f"audio_input_{st.session_state.reset_counter}")
         
         if recorded_audio and st.button("Transcribe"):
             with st.spinner("Transcribing audio..."):
@@ -73,7 +84,7 @@ if st.session_state.extracted_text and input_mode in ["Image", "Audio"]:
         st.text_area(
             "Extraction Preview (Edit if needed):", 
             value=st.session_state.extracted_text, 
-            key="edited_text"
+            key=f"preview_text_{st.session_state.reset_counter}"
         )
     with col2:
         conf_pct = int(st.session_state.confidence * 100)
@@ -171,4 +182,5 @@ if not current_state.next and current_state.values.get("solution"):
         st.session_state.thread_id = str(uuid.uuid4())
         st.session_state.extracted_text = ""
         st.session_state.confidence = 1.0
+        st.session_state.reset_counter += 1
         st.rerun()
