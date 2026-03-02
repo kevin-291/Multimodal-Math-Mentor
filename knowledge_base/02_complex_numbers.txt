@@ -1,0 +1,25 @@
+TOPIC: Complex Numbers
+
+FORMULAS & IDENTITIES:
+- Algebraic form: z = x + iy
+- Polar form: z = r(cos θ + i sin θ) = r e^(iθ)
+- Modulus: |z| = √(x^2 + y^2)
+- Argument: θ = tan^-1(y/x), adjusted for the quadrant.
+- De Moivre's Theorem: (cos θ + i sin θ)^n = cos(nθ) + i sin(nθ)
+- Cube roots of unity: 1, ω, ω^2. Properties: 1 + ω + ω^2 = 0 and ω^3 = 1.
+- Rotation theorem (Coni method): (z3 - z1) / (z2 - z1) = |z3 - z1|/|z2 - z1| * e^(iα)
+
+SOLUTION TEMPLATE - Locus Problems:
+Problem: Find the locus of z satisfying |z - z1| = |z - z2|.
+Step 1: Recognize the geometric meaning (distance from z1 equals distance from z2).
+Step 2: Conclude the locus is the perpendicular bisector of the line segment joining z1 and z2.
+Step 3: Alternatively, substitute z = x + iy, expand the moduli, square both sides, and simplify to get the Cartesian equation.
+
+COMMON MISTAKES & PITFALLS:
+- Applying √a * √b = √(ab) when both 'a' and 'b' are negative. This is false; it equals -√(ab).
+- Forgetting that the principal argument arg(z) must strictly lie in the interval (-π, π].
+- Confusing the triangle inequality: |z1 + z2| ≤ |z1| + |z2| and |z1 - z2| ≥ ||z1| - |z2||.
+
+UNIT/DOMAIN CONSTRAINTS:
+- Complex numbers cannot be compared using inequalities (e.g., z1 > z2 is meaningless unless their imaginary parts are zero).
+- Division by z is only valid if |z| ≠ 0.

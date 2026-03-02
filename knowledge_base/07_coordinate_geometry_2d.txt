@@ -1,0 +1,24 @@
+TOPIC: Coordinate Geometry (Straight Lines and Circles)
+
+FORMULAS & IDENTITIES:
+- Distance Formula: d = √[(x2 - x1)^2 + (y2 - y1)^2]
+- Section Formula (Internal): (mx2 + nx1)/(m+n) , (my2 + ny1)/(m+n)
+- Equation of a straight line: y - y1 = m(x - x1)
+- Angle between two lines: tan θ = |(m1 - m2) / (1 + m1m2)|
+- General circle: x^2 + y^2 + 2gx + 2fy + c = 0. Center = (-g, -f), Radius = √(g^2 + f^2 - c)
+- Orthogonality of two circles: 2g1g2 + 2f1f2 = c1 + c2
+
+SOLUTION TEMPLATE - Tangent to a Circle (T=0):
+Problem: Find the equation of the tangent to the circle S = 0 at a point (x1, y1) ON the circle.
+Step 1: Write the expression T by replacing:
+        x^2 -> xx1, y^2 -> yy1, x -> (x+x1)/2, y -> (y+y1)/2.
+Step 2: Equate T to 0. This is the tangent equation.
+*Note: If (x1, y1) lies OUTSIDE the circle, T=0 gives the equation of the Chord of Contact.
+
+COMMON MISTAKES & PITFALLS:
+- Using the T=0 formula for a point lying outside the circle thinking it will give a single tangent.
+- Assuming two lines are perpendicular if m1m2 = -1 without checking if one line is vertical (undefined slope) and the other horizontal (m=0).
+- Forgetting the modulus sign in the perpendicular distance formula from a point to a line.
+
+UNIT/DOMAIN CONSTRAINTS:
+- Radius of a circle must be real and strictly > 0. Therefore, g^2 + f^2 - c > 0. If it equals 0, it's a point circle.

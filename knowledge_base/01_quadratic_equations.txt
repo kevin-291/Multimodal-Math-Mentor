@@ -1,0 +1,25 @@
+TOPIC: Quadratic Equations and Expressions
+
+FORMULAS & IDENTITIES:
+- General Form: ax^2 + bx + c = 0
+- Roots (Sridharacharya Formula): x = [-b ± √(b^2 - 4ac)] / 2a
+- Sum of roots (α + β) = -b/a
+- Product of roots (αβ) = c/a
+- Difference of roots |α - β| = √(D) / |a|, where Discriminant D = b^2 - 4ac
+- Condition for common root between a1x^2 + b1x + c1 = 0 and a2x^2 + b2x + c2 = 0: (a1c2 - a2c1)^2 = (b1c2 - b2c1)(a1b2 - a2b1)
+
+SOLUTION TEMPLATE - Location of Roots:
+Problem: Find conditions for exactly one root lying in the interval (k1, k2).
+Step 1: Check the sign of 'a' (upward or downward parabola).
+Step 2: Ensure roots are real (D ≥ 0).
+Step 3: Apply the condition f(k1) * f(k2) < 0.
+Step 4: Solve the resulting inequality for the parameter.
+
+COMMON MISTAKES & PITFALLS:
+- Forgetting to check if 'a' can be zero (which makes the equation linear, not quadratic).
+- Squaring an equation without checking for extraneous roots.
+- In inequalities involving rational expressions, cross-multiplying without knowing the sign of the denominator.
+
+UNIT/DOMAIN CONSTRAINTS:
+- For real roots, D must be ≥ 0. If D < 0, roots are complex conjugates.
+- If ax^2 + bx + c > 0 for all real x, then a > 0 AND D < 0.

@@ -1,0 +1,25 @@
+TOPIC: Indefinite and Definite Integration
+
+FORMULAS & IDENTITIES:
+- Integration by Parts (ILATE rule): ∫u v dx = u∫v dx - ∫(u' ∫v dx) dx
+- Standard form: ∫ e^x [f(x) + f'(x)] dx = e^x f(x) + C
+- King's Rule (Definite): ∫(a to b) f(x) dx = ∫(a to b) f(a + b - x) dx
+- Even/Odd Rule: ∫(-a to a) f(x) dx = 0 if f(-x) = -f(x). Equals 2∫(0 to a) f(x) dx if f(-x) = f(x).
+- Periodic functions: ∫(0 to nT) f(x) dx = n ∫(0 to T) f(x) dx, where T is the period.
+
+SOLUTION TEMPLATE - Applying King's Rule:
+Problem: Evaluate I = ∫(a to b) f(x) / (f(x) + f(a+b-x)) dx
+Step 1: Write I = ∫(a to b) f(x) / (f(x) + f(a+b-x)) dx (Equation 1)
+Step 2: Apply King's Rule: Replace x with (a+b-x).
+Step 3: I = ∫(a to b) f(a+b-x) / (f(a+b-x) + f(x)) dx (Equation 2)
+Step 4: Add Equation 1 and Equation 2: 2I = ∫(a to b) 1 dx
+Step 5: 2I = (b - a), so I = (b - a) / 2.
+
+COMMON MISTAKES & PITFALLS:
+- Forgetting the constant of integration (+C) in indefinite integrals.
+- Failing to change the upper and lower limits of integration when applying substitution in definite integrals.
+- Integrating across a vertical asymptote or point of discontinuity without splitting the integral.
+
+UNIT/DOMAIN CONSTRAINTS:
+- Area under a curve must be calculated using the absolute value: ∫ |f(x)| dx if the curve crosses the x-axis.
+- For definite integrals, check if the function is continuous in the interval [a,b].

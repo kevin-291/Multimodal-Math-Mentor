@@ -1,0 +1,27 @@
+TOPIC: Trigonometric Ratios, Identities, and Equations
+
+FORMULAS & IDENTITIES:
+- sin(A ± B) = sin A cos B ± cos A sin B
+- cos(A ± B) = cos A cos B ∓ sin A sin B
+- sin C + sin D = 2 sin((C+D)/2) cos((C-D)/2)
+- cos C - cos D = -2 sin((C+D)/2) sin((C-D)/2)
+- sin 2θ = 2 sin θ cos θ = 2 tan θ / (1 + tan^2 θ)
+- cos 2θ = cos^2 θ - sin^2 θ = 2 cos^2 θ - 1 = 1 - 2 sin^2 θ
+
+SOLUTION TEMPLATE - Trigonometric Equations of form a sin x + b cos x = c:
+Problem: Solve a sin x + b cos x = c.
+Step 1: Check if |c| ≤ √(a^2 + b^2). If not, NO SOLUTION.
+Step 2: Divide the entire equation by R = √(a^2 + b^2).
+Step 3: Let a/R = cos α and b/R = sin α.
+Step 4: Rewrite LHS as sin(x + α) = c/R.
+Step 5: Find the principal angle β where sin β = c/R.
+Step 6: Write general solution: x + α = nπ + (-1)^n β.
+
+COMMON MISTAKES & PITFALLS:
+- Cancelling trigonometric terms from both sides of an equation (e.g., dividing by sin x) without considering the case where sin x = 0. This loses roots.
+- Squaring a trigonometric equation (e.g., to convert sin to cos) introduces extraneous roots. You must check answers in the original equation.
+- Forgetting the 'nπ' or '2nπ' generalizations in final answers.
+
+UNIT/DOMAIN CONSTRAINTS:
+- Domains: tan x and sec x are undefined at odd multiples of π/2. cot x and csc x are undefined at multiples of π.
+- Ranges: sin x and cos x strictly belong to [-1, 1]. sec x and csc x strictly belong to (-∞, -1] U [1, ∞).

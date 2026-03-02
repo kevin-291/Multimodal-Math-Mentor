@@ -1,0 +1,24 @@
+TOPIC: Vectors and 3D Geometry
+
+FORMULAS & IDENTITIES:
+- Dot Product: a·b = |a||b|cos θ. Perpendicular if a·b = 0.
+- Cross Product: a x b = |a||b|sin θ n̂. Parallel if a x b = 0.
+- Scalar Triple Product (STP): [a b c] = a·(b x c). Coplanar if [a b c] = 0.
+- Vector Triple Product (VTP): a x (b x c) = (a·c)b - (a·b)c
+- Shortest distance between skew lines r = a1 + λb1 and r = a2 + μb2: d = |(a2 - a1)·(b1 x b2)| / |b1 x b2|
+- Equation of a plane passing through 'a' with normal 'n': (r - a)·n = 0
+
+SOLUTION TEMPLATE - Distance of a point from a plane:
+Problem: Find perpendicular distance from point P(x1, y1, z1) to plane Ax + By + Cz + D = 0.
+Step 1: Substitute the point's coordinates into the plane's LHS: |Ax1 + By1 + Cz1 + D|
+Step 2: Calculate the magnitude of the normal vector: √(A^2 + B^2 + C^2)
+Step 3: Distance d = |Ax1 + By1 + Cz1 + D| / √(A^2 + B^2 + C^2)
+
+COMMON MISTAKES & PITFALLS:
+- Vector cross product is not commutative: a x b = -(b x a).
+- Confusing collinearity (vectors are scalar multiples) with coplanarity (STP is zero).
+- In 3D geometry, forgetting that the direction ratios of a line segment connecting two points A and B are proportional to (x2-x1, y2-y1, z2-z1).
+
+UNIT/DOMAIN CONSTRAINTS:
+- Magnitude of a vector |a| must always be ≥ 0.
+- The angle between two vectors θ is restricted to [0, π].

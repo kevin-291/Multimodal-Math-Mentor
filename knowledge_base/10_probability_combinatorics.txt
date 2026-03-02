@@ -1,0 +1,28 @@
+TOPIC: Probability and Permutations & Combinations (P&C)
+
+FORMULAS & IDENTITIES:
+- Fundamental Principle of Counting: Multiplication rule (AND), Addition rule (OR).
+- Combinations: nCr = n! / [r! (n-r)!]
+- Permutations: nPr = n! / (n-r)!
+- Circular Permutations: (n-1)! for distinct objects in a circle.
+- Conditional Probability: P(A|B) = P(A ∩ B) / P(B)
+- Bayes' Theorem: P(E_i | A) = [P(A | E_i) P(E_i)] / [Σ P(A | E_j) P(E_j)]
+- Binomial Distribution: P(X = r) = nCr * p^r * q^(n-r), where p+q = 1. Mean = np, Variance = npq.
+
+SOLUTION TEMPLATE - Bayes' Theorem:
+Problem: Finding the probability that a specific event caused an observed outcome.
+Step 1: Identify the mutually exclusive hypotheses (E1, E2, ... En) and their prior probabilities P(Ei).
+Step 2: Identify the observed event (A).
+Step 3: Calculate the conditional probabilities of the event given each hypothesis P(A|Ei).
+Step 4: Calculate the Total Probability: P(A) = Σ [P(Ei) * P(A|Ei)].
+Step 5: Apply Bayes' formula: P(Ek | A) = [P(Ek) * P(A|Ek)] / P(A).
+
+COMMON MISTAKES & PITFALLS:
+- Confusing identical and distinct objects. (e.g., arranging 'n' distinct objects in 'r' boxes vs 'n' identical objects in 'r' boxes).
+- Treating independent events and mutually exclusive events as the same thing. (Independent: P(A∩B) = P(A)P(B). Mutually Exclusive: P(A∩B) = 0).
+- In probability, forgetting that probabilities must sum to 1, or ending up with a probability > 1.
+
+UNIT/DOMAIN CONSTRAINTS:
+- For nCr and nPr, 'n' and 'r' must be non-negative integers, and n ≥ r.
+- Probability values must strictly lie in the closed interval [0, 1].
+- Variance in binomial distribution (npq) can never exceed the mean (np) since q < 1.

@@ -1,0 +1,27 @@
+TOPIC: Conic Sections (Parabola, Ellipse, Hyperbola)
+
+FORMULAS & IDENTITIES:
+- Parabola (y^2 = 4ax): Focus (a,0), Directrix x = -a. Parametric: (at^2, 2at).
+- Ellipse (x^2/a^2 + y^2/b^2 = 1, a>b): Eccentricity e = √(1 - b^2/a^2). Foci: (±ae, 0). Parametric: (a cos θ, b sin θ).
+- Hyperbola (x^2/a^2 - y^2/b^2 = 1): Eccentricity e = √(1 + b^2/a^2). Foci: (±ae, 0). Parametric: (a sec θ, b tan θ).
+- Condition of tangency (y = mx + c):
+  - Parabola: c = a/m
+  - Ellipse: c^2 = a^2 m^2 + b^2
+  - Hyperbola: c^2 = a^2 m^2 - b^2
+
+SOLUTION TEMPLATE - Common Tangent to Two Conics:
+Problem: Find the common tangent to y^2 = 4ax and x^2/a^2 + y^2/b^2 = 1.
+Step 1: Write the general equation of a tangent to the first conic in terms of slope 'm'. (e.g., y = mx + a/m).
+Step 2: Apply the condition of tangency for this line on the second conic.
+Step 3: Substitute c = a/m into the second conic's tangency condition: (a/m)^2 = a^2 m^2 + b^2.
+Step 4: Solve the resulting equation for 'm'.
+Step 5: Substitute 'm' back into the tangent equation.
+
+COMMON MISTAKES & PITFALLS:
+- Confusing the ellipse eccentricity formula with the hyperbola one (sign error).
+- Not checking whether 'a' > 'b' or 'b' > 'a' in an ellipse, which flips the major axis from x to y.
+- Using the wrong parametric coordinates for the conjugate hyperbola.
+
+UNIT/DOMAIN CONSTRAINTS:
+- Eccentricity domains: Parabola (e = 1), Ellipse (0 < e < 1), Hyperbola (e > 1), Circle (e = 0).
+- The value inside the square root for eccentricity must always be positive.

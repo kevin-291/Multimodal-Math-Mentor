@@ -1,0 +1,24 @@
+TOPIC: Limits, Continuity, and Differentiability (Differential Calculus)
+
+FORMULAS & IDENTITIES:
+- Standard Limits: lim(x->0) (sin x)/x = 1, lim(x->0) (e^x - 1)/x = 1, lim(x->0) (1+x)^(1/x) = e
+- 1^∞ form limit: lim(x->a) f(x)^g(x) = e^[lim(x->a) g(x)(f(x) - 1)]
+- L'Hôpital's Rule: For 0/0 or ∞/∞ forms, lim f(x)/g(x) = lim f'(x)/g'(x)
+- Newton-Leibniz Rule: d/dx [∫(from v(x) to u(x)) f(t) dt] = f(u(x))u'(x) - f(v(x))v'(x)
+
+SOLUTION TEMPLATE - Maxima and Minima (First Derivative Test):
+Problem: Find local extrema of f(x).
+Step 1: Find f'(x) and set f'(x) = 0 to find critical points.
+Step 2: Identify points where f'(x) is undefined (these are also critical points).
+Step 3: Check the sign change of f'(x) across the critical points.
+Step 4: Positive to Negative implies Local Maxima; Negative to Positive implies Local Minima.
+
+COMMON MISTAKES & PITFALLS:
+- Applying L'Hôpital's rule without checking if the limit is actually in 0/0 or ∞/∞ form.
+- Assuming continuity implies differentiability (e.g., f(x) = |x| is continuous but not differentiable at x=0).
+- Forgetting to check the endpoints of a closed interval [a,b] when finding Global Maxima/Minima.
+
+UNIT/DOMAIN CONSTRAINTS:
+- For f(x) = ln(g(x)), domain strictly requires g(x) > 0.
+- For f(x) = √(g(x)), domain strictly requires g(x) ≥ 0.
+- Denominators must never equal zero.

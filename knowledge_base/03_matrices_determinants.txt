@@ -1,0 +1,26 @@
+TOPIC: Matrices and Determinants
+
+FORMULAS & IDENTITIES:
+- Matrix multiplication is NOT commutative: AB ≠ BA in general.
+- Transpose properties: (AB)^T = B^T A^T
+- Adjoint properties: A(adj A) = (adj A)A = |A|I
+- Determinant of adjoint: |adj A| = |A|^(n-1) where n is the order.
+- Inverse: A^-1 = (1/|A|) * adj A
+- Cramer's Rule for AX = B: x = Dx/D, y = Dy/D, z = Dz/D.
+
+SOLUTION TEMPLATE - System of Linear Equations:
+Problem: Determine the number of solutions for a 3x3 system.
+Step 1: Calculate the main determinant D (or |A|).
+Step 2: If D ≠ 0, there is a unique solution (Consistent).
+Step 3: If D = 0, calculate Dx, Dy, Dz.
+Step 4: If D = 0 and at least one of Dx, Dy, Dz is non-zero, the system has No Solution (Inconsistent).
+Step 5: If D = Dx = Dy = Dz = 0, the system usually has Infinite Solutions (check parallel planes edge case).
+
+COMMON MISTAKES & PITFALLS:
+- Taking a scalar out of a determinant: |kA| = k^n |A|, NOT k|A|. (Most common JEE error).
+- Assuming (A+B)^2 = A^2 + 2AB + B^2. This is only true if AB = BA.
+- Attempting to find the inverse of a singular matrix (|A| = 0).
+
+UNIT/DOMAIN CONSTRAINTS:
+- Inverse A^-1 only exists if |A| ≠ 0.
+- Order of matrices must match for addition (m x n + m x n) and multiplication (m x n * n x p).
