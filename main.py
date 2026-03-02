@@ -10,15 +10,17 @@ from utils.asr import ASR
 st.set_page_config(page_title="JEE Math AI Tutor", layout="wide")
 
 if "thread_id" not in st.session_state:
-    st.session_state.thread_id = str(uuid.uuid4())
+    st.session_state["thread_id"] = str(uuid.uuid4())
 if "extracted_text" not in st.session_state:
-    st.session_state.extracted_text = ""
+    st.session_state["extracted_text"] = ""
+if "edited_text" not in st.session_state:
+    st.session_state["edited_text"] = ""
 if "confidence" not in st.session_state:
-    st.session_state.confidence = 1.0
+    st.session_state["confidence"] = 1.0
 if "reset_counter" not in st.session_state:
-    st.session_state.reset_counter = 0
+    st.session_state["reset_counter"] = 0
 
-config = {"configurable": {"thread_id": st.session_state.thread_id}}
+config = {"configurable": {"thread_id": st.session_state.get("thread_id")}}
 
 st.title("🎓 JEE Math AI Tutor")
 st.markdown("End-to-End Problem Solver with Human-in-the-Loop & Self-Learning")
@@ -30,19 +32,19 @@ with st.container(border=True):
     if input_mode == "Text":
         user_text = st.text_area(
             "Type your math problem here:",
-            key=f"text_input_{st.session_state.reset_counter}")
+            key=f"text_input_{st.session_state.get('reset_counter')}")
         
         if st.button("Submit & Solve", type="primary"):
-            st.session_state.extracted_text = user_text
-            st.session_state.edited_text = user_text
-            st.session_state.confidence = 1.0 
+            st.session_state["extracted_text"] = user_text
+            st.session_state["edited_text"] = user_text
+            st.session_state["confidence"] = 1.0 
             run_workflow = True 
             
     elif input_mode == "Image":
         uploaded_img = st.file_uploader(
             "Upload an image of the problem", 
             type=["png", "jpg", "jpeg"],
-            key=f"image_input_{st.session_state.reset_counter}")
+            key=f"image_input_{st.session_state.get('reset_counter')}")
         
         if uploaded_img and st.button("Extract"):
             with st.spinner("Running OCR..."):
@@ -50,15 +52,16 @@ with st.container(border=True):
                     ocr_tool = OCR()
                     img_bytes = uploaded_img.read()
                     text, conf = ocr_tool.extract_text(img_bytes)
-                    st.session_state.extracted_text = text
-                    st.session_state.confidence = conf
+                    st.session_state["extracted_text"] = text
+                    st.session_state["edited_text"] = text
+                    st.session_state["confidence"] = conf
                 except Exception as e:
                     st.error(f"OCR Failed: {e}")
                     
     elif input_mode == "Audio":
         recorded_audio = st.audio_input(
             "Record your math problem",
-            key=f"audio_input_{st.session_state.reset_counter}")
+            key=f"audio_input_{st.session_state.get('reset_counter')}")
         
         if recorded_audio and st.button("Transcribe"):
             with st.spinner("Transcribing audio..."):
@@ -72,22 +75,23 @@ with st.container(border=True):
                     
                     os.remove(tmp_file_path)
                     
-                    st.session_state.extracted_text = text
-                    st.session_state.confidence = conf
+                    st.session_state["extracted_text"] = text
+                    st.session_state["edited_text"] = text
+                    st.session_state["confidence"] = conf
                     
                 except Exception as e:
                     st.error(f"Audio Transcription Failed: {e}")
 
-if st.session_state.extracted_text and input_mode in ["Image", "Audio"]:
+if st.session_state.get("extracted_text") and input_mode in ["Image", "Audio"]:
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.text_area(
+        st.session_state["edited_text"] = st.text_area(
             "Extraction Preview (Edit if needed):", 
-            value=st.session_state.extracted_text, 
-            key=f"preview_text_{st.session_state.reset_counter}"
+            value=st.session_state.get("extracted_text", ""),
+            key=f"preview_text_{st.session_state.get('reset_counter')}"
         )
     with col2:
-        conf_pct = int(st.session_state.confidence * 100)
+        conf_pct = int(st.session_state.get("confidence", 0) * 100)
         st.metric("Confidence Indicator", f"{conf_pct}%")
         if conf_pct < 70:
             st.warning("Low confidence. HITL review will be triggered.")
@@ -95,11 +99,12 @@ if st.session_state.extracted_text and input_mode in ["Image", "Audio"]:
     if st.button("Run AI Workflow", type="primary"):
         run_workflow = True
 
-if run_workflow and st.session_state.edited_text:
+edited_text_safe = st.session_state.get("edited_text", "")
+if run_workflow and edited_text_safe:
         initial_state = {
             "id": str(uuid.uuid4()),
-            "text_input": st.session_state.edited_text,
-            "confidence": st.session_state.confidence,
+            "text_input": edited_text_safe,
+            "confidence": st.session_state.get("confidence", 0),
         }
         
         with st.status("Agent Trace: Running Workflow...", expanded=True) as status:
@@ -179,8 +184,9 @@ if not current_state.next and current_state.values.get("solution"):
                 st.warning(f"Feedback logged: {user_comment}")
                 
     if st.button("Start New Problem"):
-        st.session_state.thread_id = str(uuid.uuid4())
-        st.session_state.extracted_text = ""
-        st.session_state.confidence = 1.0
-        st.session_state.reset_counter += 1
+        st.session_state["thread_id"] = str(uuid.uuid4())
+        st.session_state["extracted_text"] = ""
+        st.session_state["edited_text"] = ""
+        st.session_state["confidence"] = 1.0
+        st.session_state["reset_counter"] += 1
         st.rerun()
